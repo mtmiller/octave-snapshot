@@ -1,0 +1,5 @@
+.vagrant
+octave
+octave-build
+octave-default
+octave-*.tar.xz
