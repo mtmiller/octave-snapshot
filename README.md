@@ -11,6 +11,11 @@ Image is available on Docker Hub at
 2. Use Octave or build your project against it.
 3. Profit.
 
+# License
+
+The scripts in this repository are licensed under a modified BSD license.
+See [LICENSE.md](LICENSE.md) for the full license text.
+
 ## Implementation Details
 
 Because of the resources needed to compile Octave from source, it is
