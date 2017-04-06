@@ -16,37 +16,30 @@ RUN apt-get install -y libtool
 RUN apt-get install -y make
 
 # Install shared libraries needed by Octave
-RUN apt-get install -y libamd2.3.1
-RUN apt-get install -y libarpack2
-RUN apt-get install -y libcamd2.3.1
-RUN apt-get install -y libccolamd2.8.0
-RUN apt-get install -y libcholmod2.1.2
-RUN apt-get install -y libcolamd2.8.0
-RUN apt-get install -y libcurl3-gnutls
-RUN apt-get install -y libcxsparse3.1.2
-RUN apt-get install -y libfftw3-double3
-RUN apt-get install -y libfftw3-single3
+RUN apt-get install -y libarpack2-dev
+RUN apt-get install -y libcurl4-gnutls-dev
+RUN apt-get install -y libfftw3-dev
 RUN apt-get install -y libfltk-gl1.3
-RUN apt-get install -y libfontconfig1
-RUN apt-get install -y libfreetype6
-RUN apt-get install -y libgl1-mesa-glx
-RUN apt-get install -y libgl2ps0
+RUN apt-get install -y libfontconfig-dev
+RUN apt-get install -y libfreetype6-dev
+RUN apt-get install -y libgl1-mesa-dev
+RUN apt-get install -y libgl2ps-dev
 RUN apt-get install -y libglpk36
-RUN apt-get install -y libglu1-mesa
-RUN apt-get install -y libgraphicsmagick++3
-RUN apt-get install -y libhdf5-7
-RUN apt-get install -y libncurses5
+RUN apt-get install -y libglu1-mesa-dev
+RUN apt-get install -y libgraphicsmagick++-dev
+RUN apt-get install -y libhdf5-dev
+RUN apt-get install -y libncurses-dev
 RUN apt-get install -y libopenblas-base
-RUN apt-get install -y libpcre3
+RUN apt-get install -y libpcre3-dev
 RUN apt-get install -y libportaudio2
 RUN apt-get install -y libqhull6
-RUN apt-get install -y libqrupdate1
+RUN apt-get install -y libqrupdate-dev
 RUN apt-get install -y libqt5network5
 RUN apt-get install -y libqt5opengl5
 RUN apt-get install -y libqt5scintilla2-11
-RUN apt-get install -y libreadline6
+RUN apt-get install -y libreadline-dev
 RUN apt-get install -y libsndfile1
-RUN apt-get install -y libumfpack5.6.2
+RUN apt-get install -y libsuitesparse-dev
 
 # Install programs and utilities used by some Octave functions
 RUN apt-get install -y default-jre-headless
