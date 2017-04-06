@@ -54,6 +54,6 @@ RUN apt-get install -y unzip
 RUN apt-get install -y zip
 
 # Fetch and unpack Octave snapshot built elsewhere into /usr/local
-ADD https://mtmxr.com/octave-ubuntu-trusty-snapshot.tar.xz /octave.tar.xz
+ADD https://s3.amazonaws.com/octave-snapshot/public/octave-ubuntu-trusty-snapshot.tar.xz /octave.tar.xz
 RUN tar --directory=/usr/local --extract --file=/octave.tar.xz --strip-components=1
 RUN rm -f /octave.tar.xz
