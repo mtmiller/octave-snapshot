@@ -1,5 +1,15 @@
 Creates a Docker image that contains a build of the current development
-version of GNU Octave.
+version of [GNU Octave](http://www.octave.org).
+
+Image is available on Docker Hub at
+[mtmiller/octave-snapshot](https://hub.docker.com/r/mtmiller/octave-snapshot).
+
+# Quick Start
+
+1. Create a Docker image derived from `mtmiller/octave-snapshot`, or just
+   `docker run -it mtmiller/octave-snapshot`.
+2. Use Octave or build your project against it.
+3. Profit.
 
 ## Implementation Details
 
