@@ -21,6 +21,7 @@ esac
 dir=octave-ubuntu-trusty-$suffix
 
 mv octave $dir
+chmod -R a+rX $dir
 tar --posix --owner=root:0 --group=root:0 --file=- --create $dir | xz > $dir.tar.xz
 
 # 3. Delete intermediate files and Vagrant virtual machine
