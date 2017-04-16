@@ -5,14 +5,18 @@ set -e
 # 1. Build Octave in a virtual machine using Vagrant
 
 echo "Starting Vagrant and building Octave (may take about 1 hour)..."
-vagrant up --provision > vagrant-build.log 2>&1
+vagrant box update
+vagrant up --provision
+vagrant ssh -c "sh /vagrant/guest-prepare-octave.sh" > vagrant-build.log 2>&1
+vagrant ssh -c "sh /vagrant/guest-build-octave.sh"  >> vagrant-build.log 2>&1
+vagrant ssh -c "mv octave /vagrant"                 >> vagrant-build.log 2>&1
+
+HG_ID=$(vagrant ssh -c "cat octave-build/HG-ID" 2> /dev/null | sed 's/[[:space:]]*//g')
+VERSION=$(vagrant ssh -c "sed -n 's/^VERSION = \\(.*\\)/\\1/p' octave-build/Makefile" 2> /dev/null | sed 's/[[:space:]]*//g')
 
 # 2. Clean up and archive the built Octave payload
 
 rm -f octave/lib/octave/*/lib*.la
-
-HG_ID=$(cat octave-build/HG-ID)
-VERSION=$(sed -n 's/^VERSION = \(.*\)/\1/p' octave-build/Makefile)
 
 case "$VERSION" in
   *+) suffix="$VERSION$HG_ID" ;;
