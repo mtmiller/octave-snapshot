@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# Bootstrap an Ubuntu guest to build Octave's default branch
 
 set -e
 

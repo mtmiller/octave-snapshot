@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# Fetch and prepare the Octave source for building in ~/octave-default
 
 set -e
 

@@ -1,4 +1,6 @@
 #!/bin/sh
+#
+# Build Octave from a source tree at ~/octave-default
 
 set -e
 
