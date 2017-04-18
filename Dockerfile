@@ -14,6 +14,7 @@ RUN apt-get update && apt-get install -y \
     gfortran \
     ghostscript \
     gnuplot-qt \
+    info \
     less \
     libarpack2-dev \
     libcurl4-gnutls-dev \
