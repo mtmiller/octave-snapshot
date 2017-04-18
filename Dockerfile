@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y \
     autoconf \
     automake \
     build-essential \
+    curl \
     default-jre-headless \
     epstool \
     g++ \
@@ -44,6 +45,7 @@ RUN apt-get update && apt-get install -y \
     texinfo \
     transfig \
     unzip \
+    xz-utils \
     zip \
   && apt-get clean \
   && rm -rf \
@@ -52,7 +54,5 @@ RUN apt-get update && apt-get install -y \
     /var/lib/apt/lists/* \
     /var/log/apt/term*
 
-# Fetch and unpack Octave snapshot built elsewhere into /usr/local
-ADD https://s3.amazonaws.com/octave-snapshot/public/octave-ubuntu-trusty-snapshot.tar.xz /octave.tar.xz
-RUN tar --directory=/usr/local --extract --file=/octave.tar.xz --strip-components=1 && rm -f /octave.tar.xz
-RUN ldconfig
+RUN curl -SL https://s3.amazonaws.com/octave-snapshot/public/octave-ubuntu-trusty-snapshot.tar.xz \
+  | tar -xJC /usr/local --strip-components=1
