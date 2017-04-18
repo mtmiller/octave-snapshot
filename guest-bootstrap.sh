@@ -2,7 +2,7 @@
 #
 # Bootstrap an Ubuntu guest to build Octave's default branch
 
-set -e
+set -xe
 
 apt-get update
 apt-get upgrade -y

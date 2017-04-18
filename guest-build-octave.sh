@@ -2,7 +2,7 @@
 #
 # Build Octave from a source tree at ~/octave-default
 
-set -e
+set -xe
 
 basedir=$HOME
 

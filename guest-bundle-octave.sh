@@ -2,7 +2,7 @@
 #
 # Pack an installed Octave chroot into a compressed binary archive
 
-set -e
+set -xe
 
 basedir=$HOME
 
