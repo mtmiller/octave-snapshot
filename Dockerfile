@@ -46,7 +46,11 @@ RUN apt-get update && apt-get install -y \
     unzip \
     zip \
   && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* /var/*/apt/*/partial
+  && rm -rf \
+    /tmp/hsperfdata* \
+    /var/*/apt/*/partial \
+    /var/lib/apt/lists/* \
+    /var/log/apt/term*
 
 # Fetch and unpack Octave snapshot built elsewhere into /usr/local
 ADD https://s3.amazonaws.com/octave-snapshot/public/octave-ubuntu-trusty-snapshot.tar.xz /octave.tar.xz
