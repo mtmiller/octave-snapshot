@@ -23,7 +23,7 @@ mkdir -p $chrootdir
 mv $basedir/octave-dest/usr/local/* $chrootdir
 
 rm -f $chrootdir/lib/octave/*/lib*.la
-chmod -R a+rX $chrootdir
+chmod -R a+rX,u+w,go-w $chrootdir
 ( cd $basedir \
   && tar -c \
          --group=root:0 \
