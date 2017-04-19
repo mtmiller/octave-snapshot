@@ -42,3 +42,11 @@ apt-get --yes install \
   libacl1-dev \
   libattr1-dev \
   libselinux1-dev
+
+# 4. Install GNU tar from latest upstream release
+curl -SL https://ftp.gnu.org/gnu/tar/tar-latest.tar.xz \
+  | tar -xJC /usr/src
+( cd /usr/src/tar-* \
+  && FORCE_UNSAFE_CONFIGURE=1 ./configure --disable-nls \
+  && make -j$(getconf _NPROCESSORS_ONLN) all \
+  && make -j$(getconf _NPROCESSORS_ONLN) install )
