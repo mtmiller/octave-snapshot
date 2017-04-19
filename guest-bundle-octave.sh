@@ -8,7 +8,7 @@ basedir=$HOME
 
 hg_id=$(cat $basedir/octave-build/HG-ID 2> /dev/null | sed 's/[[:space:]]*//g')
 version=$(sed -n 's/^VERSION = \(.*\)/\1/p' $basedir/octave-build/Makefile 2> /dev/null | sed 's/[[:space:]]*//g')
-timestamp=$(cd $basedir/octave-default && hg log --rev "$hg_id" --template "{date}")
+timestamp=$(cat $basedir/octave-build/HG-TIMESTAMP)
 case "$version" in
   *+) suffix="$version$hg_id" ;;
   *)  suffix="$version+$hg_id" ;;

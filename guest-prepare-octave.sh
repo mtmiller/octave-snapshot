@@ -5,6 +5,8 @@
 set -xe
 
 basedir=$HOME
+hg_revision="@"
+hg_url="https://hg.savannah.gnu.org/hgweb/octave/"
 
 # 1. New Python and Mercurial required for reliable https
 
@@ -20,4 +22,11 @@ pip install mercurial
 # 2. Clone the official Octave repository
 
 rm -rf $basedir/octave-default
-hg clone https://hg.savannah.gnu.org/hgweb/octave/ $basedir/octave-default
+hg clone "$hg_url" $basedir/octave-default
+hg --repository "$basedir/octave-default" update --clean --rev "$hg_revision"
+hg --repository "$basedir/octave-default" identify --id --rev "$hg_revision" \
+  > "$basedir/octave-default/HG-ID"
+hg --repository "$basedir/octave-default" log --rev "$hg_revision" \
+                                              --template "{date|hgdate}" \
+  | sed -n 's/^\([0-9]\+\) .*/\1/p' \
+  > "$basedir/octave-default/HG-TIMESTAMP"

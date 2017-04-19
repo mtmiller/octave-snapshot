@@ -16,6 +16,8 @@ sh ../octave-default/configure --build=x86_64-linux \
                                --without-osmesa \
                                JAVA_HOME=/usr/lib/jvm/default-java
 make -j$(getconf _NPROCESSORS_ONLN) all
+diff ../octave-default/HG-ID HG-ID > /dev/null
+cp ../octave-default/HG-TIMESTAMP HG-TIMESTAMP
 rm -rf $basedir/octave-dest
 mkdir -p $basedir/octave-dest
 make -j$(getconf _NPROCESSORS_ONLN) install DESTDIR=$basedir/octave-dest
