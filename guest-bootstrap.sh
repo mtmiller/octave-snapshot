@@ -23,3 +23,6 @@ apt-get install -y qttools5-dev-tools
 apt-get install -y blt-dev libbluetooth-dev libbz2-dev libdb-dev libexpat1-dev \
                    libffi-dev libgdbm-dev libreadline-dev libsqlite3-dev \
                    libssl-dev tk-dev zlib1g-dev
+
+# 3. Install GNU tar build dependencies
+apt-get install -y libacl1-dev libattr1-dev libselinux1-dev
