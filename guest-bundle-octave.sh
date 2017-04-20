@@ -20,7 +20,11 @@ chrootdir=$basedir/$packname
 
 rm -rf $chrootdir
 mkdir -p $chrootdir
-mv $basedir/octave-dest/usr/local/* $chrootdir
+make -C $basedir/octave-build install DESTDIR=$chrootdir
+for d in bin include lib libexec share; do
+  mv $chrootdir/usr/local/$d $chrootdir/$d
+done
+rm -rf $chrootdir/usr
 
 rm -f $chrootdir/lib/octave/*/lib*.la
 gzip -9n $chrootdir/share/info/*.info* $chrootdir/share/man/man1/*.1
