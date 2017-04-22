@@ -30,3 +30,5 @@ hg --repository "$basedir/octave-default" log --rev "$hg_revision" \
                                               --template "{date|hgdate}" \
   | sed -n 's/^\([0-9]\+\) .*/\1/p' \
   > "$basedir/octave-default/HG-TIMESTAMP"
+rm -rf "$basedir"/octave-default/.hg*
+rm -rf "$basedir"/octave-default/gnulib/.hg*
