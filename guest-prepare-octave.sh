@@ -15,8 +15,9 @@ export PYENV_ROOT=$HOME/.pyenv
 export PATH=$PYENV_ROOT/bin:$PATH
 eval "$(pyenv init -)"
 
-export PYENV_VERSION=2.7.13
-pyenv install 2.7.13
+python_version=2.7.13
+pyenv install $python_version
+pyenv shell $python_version
 pip install mercurial
 
 # 2. Clone the official Octave repository
