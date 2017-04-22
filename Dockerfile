@@ -1,7 +1,7 @@
 FROM ubuntu:trusty
 MAINTAINER Mike Miller <mtmiller@octave.org>
 
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get --no-install-recommends --yes install \
     autoconf \
     automake \
     build-essential \
