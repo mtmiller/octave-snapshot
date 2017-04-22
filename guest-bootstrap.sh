@@ -35,9 +35,6 @@ while :; do
   esac
 done
 
-apt-get update
-apt-get --yes upgrade
-
 case "$with_qt" in
   4)
     qt_packages="
@@ -45,13 +42,17 @@ case "$with_qt" in
   libqt4-dev
   libqt4-dev-bin
   libqt4-opengl-dev
+  qt4-default
   qt4-dev-tools
   qt4-linguist-tools
     "
     ;;
   5)
     qt_packages="
+  libqt5opengl5-dev
   libqt5scintilla2-dev
+  qt5-default
+  qtbase5-dev
   qtbase5-dev-tools
   qttools5-dev
   qttools5-dev-tools
@@ -59,18 +60,75 @@ case "$with_qt" in
     ;;
 esac
 
+mkdir -p /etc/apt/apt.conf.d
+echo 'APT::Install-Recommends "false";'  > /etc/apt/apt.conf.d/99minimize
+echo 'APT::Install-Suggests "false";'   >> /etc/apt/apt.conf.d/99minimize
+
+apt-get update
+apt-get --yes upgrade
+
 # 1. Install Octave build dependencies
-apt-get --yes build-dep octave
 apt-get --yes install \
+  autoconf \
+  automake \
   bison \
+  curl \
+  default-jdk \
+  desktop-file-utils \
+  epstool \
+  flex \
+  g++ \
+  gawk \
+  gcc \
+  gfortran \
+  ghostscript \
   git \
+  gnuplot-nox \
+  gperf \
   icoutils \
+  less \
+  libarpack2-dev \
+  libblas-dev \
+  libbz2-dev \
+  libc6-dev \
+  libcurl4-gnutls-dev \
+  libfftw3-dev \
+  libfltk1.3-dev \
+  libfontconfig1-dev \
+  libfreetype6-dev \
+  libgl1-mesa-dev \
+  libgl2ps-dev \
+  libglpk-dev \
+  libglu1-mesa-dev \
+  libgraphicsmagick++1-dev \
+  libhdf5-dev \
+  liblapack-dev \
+  libncurses5-dev \
+  libpcre3-dev \
+  libqhull-dev \
+  libqrupdate-dev \
+  libreadline-dev \
   librsvg2-bin \
   libsndfile1-dev \
-  mercurial \
+  libsuitesparse-dev \
+  libtool \
+  make \
+  perl \
   portaudio19-dev \
+  pstoedit \
+  $qt_packages \
   qtchooser \
-  $qt_packages
+  texinfo \
+  texlive-base \
+  texlive-binaries \
+  texlive-fonts-recommended \
+  texlive-generic-recommended \
+  texlive-latex-base \
+  transfig \
+  unzip \
+  xz-utils \
+  zip \
+  zlib1g-dev
 
 # 2. Install Python build dependencies
 apt-get --yes install \
