@@ -34,9 +34,9 @@ RUN apt-get update && apt-get --no-install-recommends --yes install \
     libportaudio2 \
     libqhull6 \
     libqrupdate-dev \
-    libqt5network5 \
-    libqt5opengl5 \
-    libqt5scintilla2-11 \
+    libqt4-network \
+    libqt4-opengl \
+    libqscintilla2-11 \
     libreadline-dev \
     libsndfile1 \
     libsuitesparse-dev \
