@@ -87,6 +87,7 @@ apt-get --yes install \
   gperf \
   icoutils \
   less \
+  libarchive-zip-perl \
   libarpack2-dev \
   libblas-dev \
   libbz2-dev \
