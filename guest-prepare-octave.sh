@@ -8,13 +8,15 @@ basedir=$HOME
 hg_revision="@"
 hg_url="https://hg.savannah.gnu.org/hgweb/octave/"
 
+# 1. Create a file of constants and initializations for this build
+
 init=/tmp/guest-initializations.sh
 echo >  "$init" "# shell initializations for octave-snapshot"
 echo >> "$init"
 echo >> "$init" "basedir=$basedir"
 . "$init"
 
-# 1. New Python and Mercurial required for reliable https
+# 2. New Python and Mercurial required for reliable https
 
 git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv
 echo >> "$init" "export PYENV_ROOT=\$HOME/.pyenv"
@@ -27,7 +29,11 @@ pyenv install $python_version
 pyenv global $python_version
 pip install mercurial
 
-# 2. Clone the official Octave repository
+# 3. Install S3cmd to enable pushing final results to S3
+
+pip install s3cmd
+
+# 4. Clone the official Octave repository
 
 rm -rf $basedir/octave-default
 hg clone "$hg_url" $basedir/octave-default
