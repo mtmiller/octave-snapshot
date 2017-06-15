@@ -16,6 +16,12 @@ echo >> "$init"
 echo >> "$init" "basedir=$basedir"
 . "$init"
 
+creds="$(cd $(dirname $0) && pwd)/aws_credential_file.txt"
+if [ -e "$creds" ]; then
+  echo >> "$init" "export AWS_CREDENTIAL_FILE=\"$creds\""
+  . "$init"
+fi
+
 # 2. New Python and Mercurial required for reliable https
 
 git clone https://github.com/pyenv/pyenv.git $HOME/.pyenv

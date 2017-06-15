@@ -15,8 +15,6 @@ echo "4. Installing and compressing Octave binary image ..."
 vagrant ssh -c "sh /vagrant/guest-bundle-octave.sh" > guest-bundle-octave.log 2>&1
 
 echo "5. Publishing Octave binary image ..."
-vagrant ssh -c "sh /vagrant/guest-publish-octave.sh file:///vagrant/octave-ubuntu-trusty-snapshot.tar.xz" > guest-publish-octave.log 2>&1
+vagrant ssh -c "sh /vagrant/guest-publish-octave.sh s3://octave-snapshot/public/" > guest-publish-octave.log 2>&1
 
 vagrant destroy -f > /dev/null 2>&1
-
-echo "Now upload the file octave-ubuntu-trusty-snapshot.tar.xz to a public URL"

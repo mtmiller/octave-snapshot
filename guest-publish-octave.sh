@@ -17,6 +17,7 @@ if [ x"$arg" = x ]; then
 fi
 
 dest_file=
+dest_s3_bucket=
 
 case "$arg" in
   file:///*)
@@ -29,6 +30,9 @@ case "$arg" in
     echo >&2 "$0: unrecognized or malformed file URI: $arg"
     exit 1
     ;;
+  s3://*/)
+    dest_s3_bucket=$arg
+    ;;
   *)
     echo >&2 "$0: unrecognized destination URI scheme: $arg"
     exit 1
@@ -37,4 +41,6 @@ esac
 
 if [ "$dest_file" ]; then
   cp "$basedir/$filename" "$dest_file"
+elif [ "$dest_s3_bucket" ]; then
+  s3cmd put "$basedir/$filename" "$dest_s3_bucket"
 fi
