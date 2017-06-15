@@ -4,7 +4,9 @@
 
 set -xe
 
-basedir=$HOME
+init=/tmp/guest-initializations.sh
+. "$init"
+
 filename=octave-ubuntu-trusty-snapshot.tar.xz
 
 arg="$1"

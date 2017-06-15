@@ -4,7 +4,8 @@
 
 set -xe
 
-basedir=$HOME
+init=/tmp/guest-initializations.sh
+. "$init"
 
 timestamp=$(cat $basedir/octave-default/HG-TIMESTAMP)
 export SOURCE_DATE_EPOCH=$timestamp

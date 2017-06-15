@@ -4,7 +4,8 @@
 
 set -xe
 
-basedir=$HOME
+init=/tmp/guest-initializations.sh
+. "$init"
 
 hg_id=$(cat $basedir/octave-build/HG-ID 2> /dev/null | sed 's/[[:space:]]*//g')
 version=$(sed -n 's/^VERSION = \(.*\)/\1/p' $basedir/octave-build/Makefile 2> /dev/null | sed 's/[[:space:]]*//g')
