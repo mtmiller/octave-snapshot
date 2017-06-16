@@ -1,5 +1,6 @@
 .vagrant
+aws_credential_file.txt
 octave
+octave-*.tar.xz
 octave-build
 octave-default
-octave-*.tar.xz
