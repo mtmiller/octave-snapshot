@@ -16,6 +16,11 @@ Image is available on Docker Hub at
 The scripts in this repository are licensed under a modified BSD license.
 See [LICENSE.md](LICENSE.md) for the full license text.
 
+# Get Involved
+
+If you want to help make this project better, please read the
+[contribution guidelines](CONTRIBUTING.md).
+
 ## Implementation Details
 
 Because of the resources needed to compile Octave from source, it is
@@ -23,8 +28,9 @@ impractical to build it using the Docker Hub's automated build service.
 
 Therefore, the following procedure is used
 
-1. Octave is compiled in a local virtual machine using Vagrant
+1. Octave is compiled in a virtual machine (for now, a local Vagrant VM)
 
-2. Octave binary payload is pulled from the VM, archived, and uploaded
+2. Octave binary payload is archived, compressed, and published to S3
+   from within the VM
 
 3. Docker image is rebuilt on Docker Hub
