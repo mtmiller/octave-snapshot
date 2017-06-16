@@ -37,3 +37,5 @@ gzip -9n $chrootdir/share/info/*.info* $chrootdir/share/man/man1/*.1
 chmod -R a+rX,u+w,go-w $chrootdir
 
 ( cd $basedir && tar -c $packname ) | xz > $basedir/$filename
+( cd $basedir && sha1sum $filename ) > $basedir/SHA1SUMS
+( cd $basedir && sha256sum $filename ) > $basedir/SHA256SUMS

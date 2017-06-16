@@ -41,6 +41,8 @@ esac
 
 if [ "$dest_file" ]; then
   cp "$basedir/$filename" "$dest_file"
+  cp "$basedir"/SHA*SUMS "$dest_file"
 elif [ "$dest_s3_bucket" ]; then
   s3cmd put "$basedir/$filename" "$dest_s3_bucket"
+  s3cmd put "$basedir"/SHA*SUMS "$dest_s3_bucket"
 fi
