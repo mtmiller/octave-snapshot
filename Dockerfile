@@ -16,31 +16,39 @@ RUN apt-get update && apt-get --no-install-recommends --yes install \
     gnuplot-qt \
     info \
     less \
-    libarpack2-dev \
-    libcurl4-gnutls-dev \
+    libamd2.3.1 \
+    libarpack2 \
+    libblas-dev \
+    libcamd2.3.1 \
+    libccolamd2.8.0 \
+    libcholmod2.1.2 \
+    libcolamd2.8.0 \
+    libcurl3-gnutls \
+    libcxsparse3.1.2 \
     libfftw3-dev \
     libfltk-gl1.3 \
-    libfontconfig-dev \
-    libfreetype6-dev \
-    libgl1-mesa-dev \
-    libgl2ps-dev \
+    libfontconfig1 \
+    libfreetype6 \
+    libgl1-mesa-glx \
+    libgl2ps0 \
     libglpk36 \
-    libglu1-mesa-dev \
-    libgraphicsmagick++-dev \
-    libhdf5-dev \
-    libncurses-dev \
-    libopenblas-base \
-    libpcre3-dev \
+    libglu1-mesa \
+    libgraphicsmagick++3 \
+    libhdf5-7 \
+    liblapack-dev \
+    libncurses5 \
+    libopenblas-dev \
+    libpcre3 \
     libportaudio2 \
     libqhull6 \
-    libqrupdate-dev \
+    libqrupdate1 \
+    libqscintilla2-11 \
     libqt4-network \
     libqt4-opengl \
-    libqscintilla2-11 \
     libreadline-dev \
     libsndfile1 \
-    libsuitesparse-dev \
     libtool \
+    libumfpack5.6.2 \
     make \
     pstoedit \
     texinfo \
