@@ -13,6 +13,17 @@ export TZ=UTC0
 
 ( cd $basedir/octave-default && sh bootstrap )
 
+ACTUAL_CONFIGURE_FLAGS="'--build=x86_64-linux' '--with-blas' '--without-osmesa'"
+ACTUAL_COMPILER_FLAGS="-g -O2"
+sed -i \
+    -e 's,@config_opts@,'"${ACTUAL_CONFIGURE_FLAGS}"',g' \
+    -e 's,@\(C\|CXX\|F\)FLAGS@,'"${ACTUAL_COMPILER_FLAGS}"',g' \
+    $basedir/octave-default/build-aux/subst-*.in.sh
+
+export CFLAGS="${ACTUAL_COMPILER_FLAGS} -fdebug-prefix-map=$basedir/octave-build=. -gno-record-gcc-switches"
+export CXXFLAGS="$CFLAGS"
+export FFLAGS="$CFLAGS"
+
 mkdir -p $basedir/octave-build
 ( cd $basedir/octave-build \
   && sh ../octave-default/configure --build=x86_64-linux \
