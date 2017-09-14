@@ -112,6 +112,7 @@ apt-get --yes install \
   librsvg2-bin \
   libsndfile1-dev \
   libsuitesparse-dev \
+  libsundials-serial-dev \
   libtool \
   make \
   perl \

@@ -47,6 +47,8 @@ RUN apt-get update && apt-get --no-install-recommends --yes install \
     libqt4-opengl \
     libreadline-dev \
     libsndfile1 \
+    libsundials-ida2 \
+    libsundials-nvecserial0 \
     libtool \
     libumfpack5.6.2 \
     make \
