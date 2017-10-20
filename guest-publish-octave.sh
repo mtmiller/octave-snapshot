@@ -7,8 +7,6 @@ set -xe
 init=/tmp/guest-initializations.sh
 . "$init"
 
-filename=octave-ubuntu-trusty-snapshot.tar.xz
-
 arg="$1"
 
 if [ x"$arg" = x ]; then
@@ -39,10 +37,15 @@ case "$arg" in
     ;;
 esac
 
+archives=$(awk '{print $2}' "$basedir/SHA256SUMS")
+files="$archives SHA1SUMS SHA256SUMS"
+
 if [ "$dest_file" ]; then
-  cp "$basedir/$filename" "$dest_file"
-  cp "$basedir"/SHA*SUMS "$dest_file"
+  for file in $files; do
+    cp "$basedir/$file" "$dest_file"
+  done
 elif [ "$dest_s3_bucket" ]; then
-  s3cmd put "$basedir/$filename" "$dest_s3_bucket"
-  s3cmd put "$basedir"/SHA*SUMS "$dest_s3_bucket"
+  for file in $files; do
+    s3cmd put "$basedir/$file" "$dest_s3_bucket"
+  done
 fi

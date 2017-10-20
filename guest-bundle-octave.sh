@@ -20,7 +20,13 @@ export TAR_OPTIONS="${TAR_OPTIONS} --sort=name --mtime=@${SOURCE_DATE_EPOCH}"
 export TAR_OPTIONS="${TAR_OPTIONS} --owner=0 --group=0 --numeric-owner"
 export TZ=UTC0
 
-filename=octave-ubuntu-trusty-snapshot.tar.xz
+make -C $basedir/octave-build dist
+source_archives=$(cd $basedir/octave-build && ls octave-*.*.tar.*)
+for f in $source_archives; do
+  cp "$basedir/octave-build/$f" $basedir
+done
+
+binary_archive=octave-ubuntu-trusty-snapshot.tar.xz
 packname=octave-ubuntu-trusty-$suffix
 chrootdir=$basedir/$packname
 
@@ -36,6 +42,7 @@ rm -f $chrootdir/lib/octave/*/lib*.la
 gzip -9n $chrootdir/share/info/*.info* $chrootdir/share/man/man1/*.1
 chmod -R a+rX,u+w,go-w $chrootdir
 
-( cd $basedir && tar -c $packname ) | xz > $basedir/$filename
-( cd $basedir && sha1sum $filename ) > $basedir/SHA1SUMS
-( cd $basedir && sha256sum $filename ) > $basedir/SHA256SUMS
+archives="$source_archives $binary_archive"
+( cd $basedir && tar -c $packname ) | xz > $basedir/$binary_archive
+( cd $basedir && sha1sum $archives ) > $basedir/SHA1SUMS
+( cd $basedir && sha256sum $archives ) > $basedir/SHA256SUMS

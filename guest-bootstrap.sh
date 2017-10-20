@@ -114,6 +114,7 @@ apt-get --yes install \
   libsuitesparse-dev \
   libsundials-serial-dev \
   libtool \
+  lzip \
   make \
   perl \
   portaudio19-dev \
