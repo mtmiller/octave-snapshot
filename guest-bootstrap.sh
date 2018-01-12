@@ -161,3 +161,11 @@ curl -SL https://ftp.gnu.org/gnu/tar/tar-latest.tar.xz \
   && FORCE_UNSAFE_CONFIGURE=1 ./configure --disable-nls \
   && make -j$(getconf _NPROCESSORS_ONLN) all \
   && make -j$(getconf _NPROCESSORS_ONLN) install )
+
+# 5. Install GNU Texinfo from newer upstream release
+curl -SL https://ftp.gnu.org/gnu/texinfo/texinfo-6.5.tar.xz \
+  | tar -xJC /usr/src
+( cd /usr/src/texinfo-6.5 \
+  && ./configure --disable-nls \
+  && make -j$(getconf _NPROCESSORS_ONLN) all \
+  && make -j$(getconf _NPROCESSORS_ONLN) install )
