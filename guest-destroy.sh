@@ -14,7 +14,7 @@ fi
 
 case "$guest_provision_type" in
   vagrant)
-    vagrant destroy --force "$vagrant_machine_name" > /dev/null 2>&1
+    $d/guest-destroy-vagrant.sh
     ;;
   *)
     ;;
