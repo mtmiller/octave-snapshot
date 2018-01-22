@@ -2,7 +2,7 @@
 #
 # Pack an installed Octave chroot into a compressed binary archive
 
-set -xe
+set -e
 
 init=/tmp/guest-initializations.sh
 . "$init"

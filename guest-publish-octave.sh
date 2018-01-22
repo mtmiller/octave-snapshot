@@ -2,7 +2,7 @@
 #
 # Publish the compressed Octave image to a given destination
 
-set -xe
+set -e
 
 n=$( basename $0 )
 

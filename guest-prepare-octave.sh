@@ -2,7 +2,7 @@
 #
 # Fetch and prepare the Octave source for building in ~/octave-default
 
-set -xe
+set -e
 
 d=$( cd $( dirname $0 ) && pwd )
 

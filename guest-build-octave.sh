@@ -2,7 +2,7 @@
 #
 # Build Octave from a source tree at ~/octave-default
 
-set -xe
+set -e
 
 d=$( cd $( dirname $0 ) && pwd )
 
