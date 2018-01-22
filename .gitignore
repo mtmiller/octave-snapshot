@@ -1,5 +1,7 @@
+.octave-snapshot-*
 .vagrant
 aws_credential_file.txt
+guest-*.log
 octave
 octave-*.tar.xz
 octave-build
