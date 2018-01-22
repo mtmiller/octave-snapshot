@@ -2,7 +2,7 @@
 
 set -e
 
-d=$( dirname $0 )
+d=$( cd $( dirname $0 ) && pwd )
 
 trap "sh $d/guest-destroy.sh" EXIT
 

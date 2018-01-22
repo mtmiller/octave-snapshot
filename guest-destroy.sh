@@ -4,7 +4,7 @@
 
 set -e
 
-d=$( dirname $0 )
+d=$( cd $( dirname $0 ) && pwd )
 
 ssh_config_file="$d/.octave-snapshot-ssh-config"
 state_file="$d/.octave-snapshot-guest-state"

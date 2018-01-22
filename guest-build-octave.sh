@@ -4,6 +4,8 @@
 
 set -xe
 
+d=$( cd $( dirname $0 ) && pwd )
+
 init=/tmp/guest-initializations.sh
 . "$init"
 
@@ -34,6 +36,6 @@ make -C $basedir/octave-build -j$(getconf _NPROCESSORS_ONLN) all
 diff $basedir/octave-default/HG-ID $basedir/octave-build/HG-ID
 cp $basedir/octave-default/HG-TIMESTAMP $basedir/octave-build/HG-TIMESTAMP
 
-perl $(dirname $0)/fix-jar-timestamps.pl \
+perl $d/fix-jar-timestamps.pl \
      --timestamp=$timestamp \
      $basedir/octave-build/scripts/java/octave.jar

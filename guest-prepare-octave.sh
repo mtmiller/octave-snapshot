@@ -4,6 +4,8 @@
 
 set -xe
 
+d=$( cd $( dirname $0 ) && pwd )
+
 basedir=$HOME
 hg_revision="@"
 hg_url="https://hg.savannah.gnu.org/hgweb/octave/"
@@ -16,7 +18,7 @@ echo >> "$init"
 echo >> "$init" "basedir=$basedir"
 . "$init"
 
-creds="$(cd $(dirname $0) && pwd)/aws_credential_file.txt"
+creds="$d/aws_credential_file.txt"
 if [ -e "$creds" ]; then
   echo >> "$init" "export AWS_CREDENTIAL_FILE=\"$creds\""
   . "$init"

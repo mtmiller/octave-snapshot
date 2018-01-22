@@ -4,7 +4,9 @@
 
 set -e
 
-d=$( dirname $0 )
+d=$( cd $( dirname $0 ) && pwd )
+n=$( basename $0 )
+
 ssh_config_file="$d/.octave-snapshot-ssh-config"
 
 type=unspecified
@@ -22,7 +24,7 @@ case "$type" in
     $d/guest-provision-vagrant.sh
     ;;
   *)
-    echo >&2 "$0: missing build system provisioning scheme"
+    echo >&2 "$n: missing build system provisioning scheme"
     exit 1
     ;;
 esac

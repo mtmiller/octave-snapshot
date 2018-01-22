@@ -4,13 +4,15 @@
 
 set -xe
 
+n=$( basename $0 )
+
 init=/tmp/guest-initializations.sh
 . "$init"
 
 arg="$1"
 
 if [ x"$arg" = x ]; then
-  echo >&2 "$0: missing required destination URI"
+  echo >&2 "$n: missing required destination URI"
   exit 1
 fi
 
@@ -25,14 +27,14 @@ case "$arg" in
     dest_file="/${arg#file://localhost/}"
     ;;
   file://*)
-    echo >&2 "$0: unrecognized or malformed file URI: $arg"
+    echo >&2 "$n: unrecognized or malformed file URI: $arg"
     exit 1
     ;;
   s3://*/)
     dest_s3_bucket=$arg
     ;;
   *)
-    echo >&2 "$0: unrecognized destination URI scheme: $arg"
+    echo >&2 "$n: unrecognized destination URI scheme: $arg"
     exit 1
     ;;
 esac
