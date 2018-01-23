@@ -7,7 +7,7 @@ d=$( cd $( dirname $0 ) && pwd )
 trap "sh $d/guest-destroy.sh" EXIT
 
 echo "1. Provisioning virtual machine ..."
-sh $d/guest-provision.sh --vagrant > guest-provision.log 2>&1
+sh -x $d/guest-provision.sh --ec2 > guest-provision.log 2>&1
 
 ssh_config_file="$d/.octave-snapshot-ssh-config"
 

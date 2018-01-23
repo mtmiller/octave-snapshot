@@ -13,6 +13,9 @@ if [ -e "$state_file" ]; then
 fi
 
 case "$guest_provision_type" in
+  ec2)
+    $d/guest-destroy-ec2.sh
+    ;;
   vagrant)
     $d/guest-destroy-vagrant.sh
     ;;

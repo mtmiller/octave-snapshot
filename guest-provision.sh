@@ -13,15 +13,19 @@ type=unspecified
 
 while [ -n "$1" ]; do
   case "$1" in
+    --ec2)     type=ec2 ;;
     --vagrant) type=vagrant ;;
-    *) ;;
+    *)         ;;
   esac
   shift
 done
 
 case "$type" in
+  ec2)
+    sh -x $d/guest-provision-ec2.sh
+    ;;
   vagrant)
-    $d/guest-provision-vagrant.sh
+    sh -x $d/guest-provision-vagrant.sh
     ;;
   *)
     echo >&2 "$n: missing build system provisioning scheme"
