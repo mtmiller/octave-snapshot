@@ -22,10 +22,10 @@ instance_type="t2.medium"
 key_pair_name="octave-snapshot-key"
 security_group_desc="octave-snapshot build host security group"
 security_group_name="octave-snapshot-sg"
-ssh_private_key_file="$d/$key_pair_name.pem"
+ssh_private_key_file="$PWD/$key_pair_name.pem"
 
-ssh_config_file="$d/.octave-snapshot-ssh-config"
-state_file="$d/.octave-snapshot-guest-state"
+ssh_config_file="$PWD/.octave-snapshot-ssh-config"
+state_file="$PWD/.octave-snapshot-guest-state"
 
 rm -f "$ssh_config_file"
 rm -f "$state_file"

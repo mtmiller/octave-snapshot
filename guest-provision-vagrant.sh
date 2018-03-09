@@ -6,8 +6,8 @@ set -e
 
 d=$( cd $( dirname $0 ) && pwd )
 
-ssh_config_file="$d/.octave-snapshot-ssh-config"
-state_file="$d/.octave-snapshot-guest-state"
+ssh_config_file="$PWD/.octave-snapshot-ssh-config"
+state_file="$PWD/.octave-snapshot-guest-state"
 
 rm -f "$ssh_config_file"
 rm -f "$state_file"

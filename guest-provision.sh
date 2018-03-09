@@ -7,7 +7,7 @@ set -e
 d=$( cd $( dirname $0 ) && pwd )
 n=$( basename $0 )
 
-ssh_config_file="$d/.octave-snapshot-ssh-config"
+ssh_config_file="$PWD/.octave-snapshot-ssh-config"
 
 type=unspecified
 

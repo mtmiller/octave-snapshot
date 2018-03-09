@@ -9,7 +9,7 @@ trap "sh $d/guest-destroy.sh" EXIT
 echo "1. Provisioning virtual machine ..."
 sh -x $d/guest-provision.sh --ec2 > guest-provision.log 2>&1
 
-ssh_config_file="$d/.octave-snapshot-ssh-config"
+ssh_config_file="$PWD/.octave-snapshot-ssh-config"
 
 echo "2. Preparing user enviroment and pulling Octave source ..."
 ssh -F "$ssh_config_file" guest sh -x guest-prepare-octave.sh > guest-prepare-octave.log 2>&1

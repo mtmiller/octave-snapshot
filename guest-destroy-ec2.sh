@@ -6,7 +6,7 @@ set -e
 
 d=$( cd $( dirname $0 ) && pwd )
 
-state_file="$d/.octave-snapshot-guest-state"
+state_file="$PWD/.octave-snapshot-guest-state"
 if [ -e "$state_file" ]; then
   . "$state_file"
 fi
