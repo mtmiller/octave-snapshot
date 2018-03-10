@@ -1,0 +1,6 @@
+[Unit]
+Description=Daily octave-snapshot build of GNU Octave
+After=network.target network-online.target
+
+[Service]
+ExecStart=/path/to/octave-snapshot/build-service.sh
