@@ -20,7 +20,7 @@ export TAR_OPTIONS="${TAR_OPTIONS} --sort=name --mtime=@${SOURCE_DATE_EPOCH}"
 export TAR_OPTIONS="${TAR_OPTIONS} --owner=0 --group=0 --numeric-owner"
 export TZ=UTC0
 
-make -C $basedir/octave-build dist
+make -C $basedir/octave-build -j$(getconf _NPROCESSORS_ONLN) dist
 source_archives=$(cd $basedir/octave-build && ls octave-*.*.tar.*)
 for f in $source_archives; do
   cp "$basedir/octave-build/$f" $basedir
