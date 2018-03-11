@@ -25,4 +25,4 @@ can be posted to the
 [Octave maintainers mailing list](https://lists.gnu.org/mailman/listinfo/octave-maintainers).
 
 If you are not familiar or comfortable with mailing lists, you can also
-contact me directly at mtmiller@octave.org.
+contact me directly at [mtmiller@octave.org](mailto:mtmiller@octave.org).
