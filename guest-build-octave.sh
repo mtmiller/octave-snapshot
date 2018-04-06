@@ -39,3 +39,8 @@ cp $basedir/octave-default/HG-TIMESTAMP $basedir/octave-build/HG-TIMESTAMP
 perl $d/fix-jar-timestamps.pl \
      --timestamp=$timestamp \
      $basedir/octave-build/scripts/java/octave.jar
+
+sh $d/fix-qhc-timestamps.sh \
+   --timestamp=$timestamp \
+   $basedir/octave-build/doc/interpreter/octave_interpreter.qch \
+   $basedir/octave-build/doc/interpreter/octave_interpreter.qhc

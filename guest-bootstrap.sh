@@ -121,6 +121,7 @@ apt-get --yes install \
   pstoedit \
   $qt_packages \
   qtchooser \
+  sqlite3 \
   texinfo \
   texlive-base \
   texlive-binaries \

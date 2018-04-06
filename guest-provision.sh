@@ -35,6 +35,7 @@ esac
 
 scp -F "$ssh_config_file" $d/guest-*.sh guest:
 scp -F "$ssh_config_file" $d/fix-jar-timestamps.pl guest:
+scp -F "$ssh_config_file" $d/fix-qhc-timestamps.sh guest:
 if [ -e "$d/aws_credential_file.txt" ]; then
   scp -F "$ssh_config_file" "$d/aws_credential_file.txt" guest:
 fi
