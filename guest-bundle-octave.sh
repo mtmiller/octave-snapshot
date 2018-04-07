@@ -20,11 +20,14 @@ export TAR_OPTIONS="${TAR_OPTIONS} --sort=name --mtime=@${SOURCE_DATE_EPOCH}"
 export TAR_OPTIONS="${TAR_OPTIONS} --owner=0 --group=0 --numeric-owner"
 export TZ=UTC0
 
-make -C $basedir/octave-build -j$(getconf _NPROCESSORS_ONLN) dist
-source_archives=$(cd $basedir/octave-build && ls octave-*.*.tar.*)
-for f in $source_archives; do
-  cp "$basedir/octave-build/$f" $basedir
-done
+# Build the source distribution if the system configuration allows it
+if grep -qs '#define HAVE_QT_OFFSCREEN 1' $basedir/octave-build/config.h; then
+  make -C $basedir/octave-build -j$(getconf _NPROCESSORS_ONLN) dist
+  source_archives=$(cd $basedir/octave-build && ls octave-*.*.tar.*)
+  for f in $source_archives; do
+    cp "$basedir/octave-build/$f" $basedir
+  done
+fi
 
 binary_archive=octave-ubuntu-trusty-snapshot.tar.xz
 packname=octave-ubuntu-trusty-$suffix
