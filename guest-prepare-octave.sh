@@ -32,7 +32,7 @@ echo >> "$init" "export PATH=\$PYENV_ROOT/bin:\$PATH"
 echo >> "$init" "eval \"\$(pyenv init -)\""
 . "$init"
 
-python_version=2.7.14
+python_version=2.7.15
 pyenv install $python_version
 pyenv global $python_version
 pip install mercurial
