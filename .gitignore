@@ -1,9 +1,0 @@
-.octave-snapshot-*
-.vagrant
-aws_credential_file.txt
-docker_trigger_token.txt
-guest-*.log
-octave
-octave-*.tar.xz
-octave-build
-octave-default
